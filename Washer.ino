@@ -22,6 +22,7 @@ static void ReadButton()
     if (digitalRead(Buttons[MAIN_BUTTON]) == LOW) {
         WasherSwitchStatus();
         WasherUpdate();
+        Blynk.virtualWrite(VP_STATUS_SWITCH, (int)WasherGetStatus());
         delay(600);
     }
 }
